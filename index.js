@@ -1,6 +1,6 @@
 const canvas = document.getElementById("interactive-canvas");
 
-window.onload = () => {
+window.onload = async () => {
 	canvas.innerHTML = "loaded";
 
 	const resp = await fetch(
