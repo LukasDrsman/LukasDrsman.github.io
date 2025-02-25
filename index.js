@@ -29,6 +29,6 @@ window.onload = async () => {
 			canvas
 		);
 
-		canvas.innerHTML = `<br>k: ${key} v: ${tech[key]}<br>`;
+		canvas.innerHTML += `<br>k: ${key} v: ${tech[key]}<br>`;
 	});
 };
