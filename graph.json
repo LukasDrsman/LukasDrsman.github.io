@@ -1,0 +1,206 @@
+{
+	"spheres": {
+		"tech": {
+			"node": "Node.js",
+			"http": "HTTP",
+			"wscrape": "Puppeteer/Selenium",
+			"rest": "REST API",
+			"opengl": "OpenGL",
+			"opencv": "OpenCV",
+			"iot": "IoT",
+			"sql": "SQL - MySQL, SQLite",
+			"linux": "Linux",
+			"win": "Windows - WSL2",
+			"qt": "Qt6 - PySide6",
+			"serial": "Serial communication processing",
+			"config": "Device/application configuration",
+			"flask": "Flask for python",
+			"git": "Git",
+			"design": "UI/UX design",
+			"ftp": "FTP",
+			"ps": "PrestaShop",
+			"exc": "Excel",
+			"robot": "Robotics",
+			"cmake": "CMake",
+			"graphics": "Graphics programming",
+			"data": "Data analysis & plotting",
+			"np": "NumPy",
+			"jp": "Jupyter"
+		},
+		"plang": {
+			"web": "HTML/JS/CSS",
+			"ccpp": "C/C++",
+			"py": "Python",
+			"java": "Java",
+			"sh": "ZSH & Bash",
+			"php": "PHP",
+			"lisp": "Common Lisp",
+		},
+		"langs": {
+			"en": { "name": "English", "level": "C1" },
+			"sk": { "name": "Slovak", "level": "C2" }
+		}
+	},
+
+	"graph": {
+		"~work": [
+			{
+				"company": "TatraLab s.r.o.",
+				"position": "Software developer",
+				"duration": {
+					"s-m": "January",
+					"s-y": 2024,
+					"e-m": "December",
+					"e-y": 2024
+				},
+				"connections": [
+					"plang::py", "plang::web",
+					"tech::rest", "tech::qt",
+					"tech::sql", "tech::win",
+					"tech::http", "tech::serial",
+					"tech::config", "tech::flask",
+					"tech::git"
+				]
+			},
+			{
+				"company": "RoboSkillz Academy",
+				"position": "Full-stack developer",
+				"duration": {
+					"s-m": "June",
+					"s-y": 2024
+				},
+				"connections": [
+					"plang::php", "plang::web",
+					"tech::sql", "tech::git"
+				]
+			},
+			{
+				"company": "ALISIO s.r.o.",
+				"position": "Full-stack developer",
+				"duration": {
+					"s-m": "May",
+					"s-y": 2024,
+					"e-m": "May",
+					"e-y": 2024
+				},
+				"connections": [
+					"plang::php", "plang::web",
+					"tech::sql", "tech::ftp",
+					"tech::design"
+				]
+			},
+			{
+				"company": "GÜDE Slovakia s.r.o.",
+				"position": "Web optimizer",
+				"duration": {
+					"s-m": "August",
+					"s-y": 2023,
+					"e-m": "October",
+					"e-y": 2023
+				},
+				"connections": [
+					"plang::web", "tech::wscrape",
+					"tech::ps"
+				]
+			},
+			{
+				"company": "AMICO s.r.o.",
+				"position": "Web optimizer",
+				"duration": {
+					"s-m": "August",
+					"s-y": 2022,
+					"e-m": "May",
+					"e-y": 2023
+				},
+				"connections": [
+					"plang::web", "plang::py",
+					"tech::wscrape", "tech::iot",
+					"tech::config", "tech::exc",
+					"tech::rest", "tech::http",
+					"tech::design", "tech::node"
+				]
+			}
+		],
+		"~volunteer": [
+			{
+				"organization": "FIRST Global Slovakia o.z.",
+				"position": "Organizer",
+				"duration": {
+					"s-m": "July",
+					"s-y": 2022
+				},
+				"connections": [
+					"plang::java", "plang::web",
+					"plang::sh", "tech:robot",
+					"tech::design", "tech::git",
+					"tech::config", "tech::linux",
+					"tech::win", "langs::sk", "langs::en",
+					"~projects::~tmnhmt"
+				]
+			}
+		],
+		"~projects": [
+			{
+				"uplink": "~fll",
+				"project": "libev3min",
+				"link": "https://github.com/TatranskiDravci/libev3min",
+				"desc": "C library for LEGO robots",
+				"connections": [
+					"plang::ccpp", "tech::robot",
+					"tech::config", "tech::linux",
+					"tech::git"
+				]
+			},
+			{
+				"uplink": "~tmnhmt",
+				"project": "temna-hmota",
+				"link": "https://github.com/LukasDrsman/temna-hmota",
+				"desc": "Custom interface for FIRST Global Slovakia o.z. software challenge 2023",
+				"connections": [
+					"plang::web", "plang::py",
+					"tech::robot", "tech::ftp",
+					"tech::config", "tech::git"
+				]
+			},
+			{
+				"project": "voxels",
+				"link": "https://github.com/LukasDrsman/voxels",
+				"desc": "Voxels for parametric volumes and point-clouds",
+				"connections": [
+					"plang:ccpp", "tech::opengl",
+					"tech::cmake", "tech::graphics",
+					"tech::data"
+				]
+			},
+			{
+				"project": "recon",
+				"link": "https://github.com/LukasDrsman/recon",
+				"desc": "[WIP] Stereoscopic image point-cloud reconstruction",
+				"connections": [
+					"plang:ccpp", "plang:py:"
+					"tech::opencv", "tech::graphics",
+					"tech::np"
+				]
+			},
+			{
+				"project": "erad",
+				"link": "https://mybinder.org/v2/gh/LukasDrsman/notebook/8082a375a9ebfc5713162c593f15c90cf9d75935?urlpath=lab%2Ftree%2FErad.ipynb",
+				"desc": "Estimation of radiative electric field intensity of an accelerating charge",
+				"connections": [
+					"plang::py", "tech::jp",
+					"tech::np", "tech::data"
+				]
+			},
+			{
+				"project": "vis3dvf",
+				"link": "https://github.com/LukasDrsman/vis3dvf",
+				"desc": "Simple vector field visualization library",
+				"connections": [
+					"plang::py", "tech::opengl",
+					"tech::np", "tech::data"
+				]
+			}
+		]
+	}
+
+}
