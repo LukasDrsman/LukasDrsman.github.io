@@ -8,5 +8,5 @@ window.onload = async () => {
 			method: "GET"			
 	});
 
-	canvas.innerHTML += `<br><br>${resp.json()}`;
+	canvas.innerHTML += `<br><br>${await resp.json()}`;
 };
