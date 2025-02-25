@@ -23,8 +23,8 @@ window.onload = async () => {
 	let techUplink = {};
 	Object.keys(tech).forEach(key => {
 		techUplink[key] = createExperienceBlob(
-			Math.floor(Math.random() * window.width),
-			Math.floor(Math.random() * window.height),
+			Math.floor(Math.random() * canvas.clientWidth),
+			Math.floor(Math.random() * canvas.clientHeight),
 			tech[key],
 			canvas
 		);
