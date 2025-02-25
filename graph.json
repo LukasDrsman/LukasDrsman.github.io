@@ -177,7 +177,7 @@
 				"link": "https://github.com/LukasDrsman/recon",
 				"desc": "[WIP] Stereoscopic image point-cloud reconstruction",
 				"connections": [
-					"plang:ccpp", "plang:py:"
+					"plang:ccpp", "plang:py:",
 					"tech::opencv", "tech::graphics",
 					"tech::np"
 				]
