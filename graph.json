@@ -34,7 +34,7 @@
 			"java": "Java",
 			"sh": "ZSH & Bash",
 			"php": "PHP",
-			"lisp": "Common Lisp",
+			"lisp": "Common Lisp"
 		},
 		"langs": {
 			"en": { "name": "English", "level": "C1" },
