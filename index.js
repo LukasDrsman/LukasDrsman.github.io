@@ -1,5 +1,13 @@
 const canvas = document.getElementById("interactive-canvas");
 
+const createExperienceBlob = (x, y, tag, canvas) => {
+	const el = document.createElement("div");
+	el.classList.add("experience-blob");
+	el.style.transform = `translate(${x}px, ${y}px)`;
+	canvas.appendChild(el);
+	return el;
+}
+
 window.onload = async () => {
 	canvas.innerHTML = "loaded";
 
@@ -8,5 +16,19 @@ window.onload = async () => {
 			method: "GET"			
 	});
 
-	canvas.innerHTML += `<br><br>${await resp.json()}`;
+	const data = await resp.json();
+	const spheres = data.spheres;
+	const tech = spheres.tech;
+
+	let techUplink = {};
+	Object.keys(tech).forEach(key => {
+		techUplink[key] = createExperienceBlob(
+			Math.floor(Math.random() * window.width),
+			Math.floor(Math.random() * window.height),
+			tech[key],
+			canvas
+		);
+
+		canvas.innerHTML = `k: ${key} v: ${tech[key]}`;
+	});
 };

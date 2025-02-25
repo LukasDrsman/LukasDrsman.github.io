@@ -4,3 +4,11 @@ html {
   	font-weight: 500;
   	font-style: normal;
 }
+
+.experience-blob {
+	position: absolute;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	border: 3px solid #000000;
+}
