@@ -13,9 +13,8 @@ const createExperienceBlob = (x, y, key, tag, canvas) => {
 	nameTag.id = `tag@${key}`;
 	nameTag.innerHTML = tag;
 
-	
-	cont.appendChild(el)
-	cont.appendChild(nameTag)
+	cont.appendChild(nameTag);
+	cont.appendChild(el);
 
 	cont.style.transform = `translate(${x}px, ${y}px)`;
 	canvas.appendChild(cont);
