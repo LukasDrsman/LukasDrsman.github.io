@@ -3,15 +3,20 @@ html {
   	font-optical-sizing: auto;
   	font-weight: 500;
   	font-style: normal;
+  	background-color: #000;
+  	color: #fff;
 }
 
 .experience-blob {
 	position: absolute;
-	border-radius: 50%;
-	width: 10px;
-	height: 10px;
-	background-color: #1fb3ed;
-	z-index: -10;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #c2eeff;
+    z-index: -10;
+    -webkit-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
+    -moz-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
+    box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
 }
 
 .blob-tag {
@@ -20,6 +25,7 @@ html {
 	width: auto;
 	height: auto;
 	background-color: #adadad;
+	color: #000;
 	z-index: 3000;
 	bottom: -10px;
     right: 12px;

@@ -42,6 +42,6 @@ window.onload = async () => {
 			k, tech[key], canvas
 		);
 
-		canvas.innerHTML += `<br>tag@${k} -> ${tech[key]}`;
+		// canvas.innerHTML += `<br>tag@${k} -> ${tech[key]}`;
 	});
 };
