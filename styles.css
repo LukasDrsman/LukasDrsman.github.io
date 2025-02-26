@@ -8,18 +8,25 @@ html {
 .experience-blob {
 	position: absolute;
 	border-radius: 50%;
-	width: 25px;
-	height: 25px;
+	width: 10px;
+	height: 10px;
 	border: 3px solid #000000;
 }
 
 .blob-tag {
 	position: absolute;
-	border-radius: 3px;
+	border-radius: 6px;
 	width: auto;
 	height: auto;
-	background-color: grey;
+	background-color: #adadad;
 	z-index: 3000;
+	bottom: -10px;
+    right: 12px;
+    float: left;
+    white-space: nowrap;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .blob-container {
