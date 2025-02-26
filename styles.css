@@ -10,7 +10,7 @@ html {
 	border-radius: 50%;
 	width: 10px;
 	height: 10px;
-	border: 3px solid #000000;
+	background-color: #1fb3ed;
 	z-index: -10;
 }
 
