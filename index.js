@@ -36,12 +36,13 @@ window.onload = async () => {
 
 	let uplink = {};
 	Object.keys(tech).forEach(key => {
-		uplink[`tech::${key}`] = createExperienceBlob(
+		const k = `tech::${key}`;
+		uplink[k] = createExperienceBlob(
 			Math.floor(Math.random() * visualViewport.width / 2 + (1/3) * visualViewport.width),
 			Math.floor(Math.random() * visualViewport.height / 2),
-			key, tech[key], canvas
+			k, tech[key], canvas
 		);
 
-		canvas.innerHTML += `<br>tag@${key} -> ${tech[key]}`;
+		canvas.innerHTML += `<br>tag@${k} -> ${tech[key]}`;
 	});
 };
