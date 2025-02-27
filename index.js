@@ -180,7 +180,7 @@ window.onload = async () => {
 	let connect = {};
 	renderBlobs(spheres.tech, uplink, "tech", canvas);
 	renderBlobs(spheres.plang, uplink, "plang", canvas);
-	renderGraph(graph["~projects"], "project", uplink, "project", connect, canvas);
+	renderGraph(graph.projects, "project", uplink, "project", connect, canvas);
 
 	canvas.addEventListener("mousemove", event => {});
 
