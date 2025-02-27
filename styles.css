@@ -7,9 +7,33 @@ html {
   	color: #fff;
 }
 
-.experience-blob {
-	position: absolute;
+#interactive-canvas {
+	width: 95vw;
+	height: 95vh;
+}
+
+.line {
+    --x: 0;
+    --y: 0;
+    --u: 0;
+    --v: 0;
+    --dx: calc(var(--u) - var(--x));
+    --dy: calc(var(--v) - var(--y));
+    --scale: sqrt(var(--dx) * var(--dx) + var(--dy) * var(--dy));
+    position: absolute;
+    transform-origin: top left;
+    border-top: 3px solid #fff;
+    width: 1px;
+    height: 0px;
+    transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+}
+
+.blob {
+    position: absolute;
     border-radius: 50%;
+}
+
+.tech-blob {
     width: 15px;
     height: 15px;
     background-color: #c2eeff;
@@ -17,6 +41,26 @@ html {
     -webkit-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
     -moz-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
     box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
+}
+
+.plang-blob {
+    width: 15px;
+    height: 15px;
+    background-color: #c2ffce;
+    z-index: -10;
+    -webkit-box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
+    -moz-box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
+    box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
+}
+
+.project-blob {
+    width: 20px;
+    height: 20px;
+    background-color: #ffe77d;
+    z-index: -10;
+    -webkit-box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
+    -moz-box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
+    box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
 }
 
 .blob-tag {
@@ -27,15 +71,30 @@ html {
 	background-color: #adadad;
 	color: #000;
 	z-index: 3000;
-	bottom: -10px;
+	bottom: -15px;
     right: 12px;
     float: left;
     white-space: nowrap;
     padding: 2px;
     padding-left: 5px;
     padding-right: 5px;
+    font-size: 12px;
+    transition: transform 0.3s ease-out;
+    user-select: none;
+}
+
+.blob-tag:hover {
+	transform: scale(1.25);
+  	transition: transform 0s;
 }
 
 .blob-container {
+    --x: 0;
+    --y: 0;
+    --u: 0;
+    --v: 0;
+    transform: translate3d(calc(var(--x) * 1px) , calc(var(--y) * 1px), 0px);
 	position: absolute;
+	z-index: 0;
 }
+	

@@ -43,7 +43,7 @@
 	},
 
 	"graph": {
-		"~work": [
+		"work": [
 			{
 				"company": "TatraLab s.r.o.",
 				"position": "Software developer",
@@ -135,11 +135,11 @@
 					"tech::design", "tech::git",
 					"tech::config", "tech::linux",
 					"tech::win", "langs::sk", "langs::en",
-					"~projects::~tmnhmt"
+					"project::~tmnhmt"
 				]
 			}
 		],
-		"~projects": [
+		"projects": [
 			{
 				"uplink": "~fll",
 				"project": "libev3min",
@@ -167,7 +167,7 @@
 				"link": "https://github.com/LukasDrsman/voxels",
 				"desc": "Voxels for parametric volumes and point-clouds",
 				"connections": [
-					"plang:ccpp", "tech::opengl",
+					"plang::ccpp", "tech::opengl",
 					"tech::cmake", "tech::graphics",
 					"tech::data"
 				]
@@ -177,7 +177,7 @@
 				"link": "https://github.com/LukasDrsman/recon",
 				"desc": "[WIP] Stereoscopic image point-cloud reconstruction",
 				"connections": [
-					"plang:ccpp", "plang:py:",
+					"plang::ccpp", "plang::py:",
 					"tech::opencv", "tech::graphics",
 					"tech::np"
 				]
