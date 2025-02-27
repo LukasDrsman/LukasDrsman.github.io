@@ -22,10 +22,10 @@ html {
     --scale: sqrt(var(--dx) * var(--dx) + var(--dy) * var(--dy));
     position: absolute;
     transform-origin: top left;
-    border-top: 3px solid #fff;
+    border-top: 1px solid #fff;
     width: 1px;
     height: 0px;
-    transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+    transform: translate3d(calc(var(--x) * 1px + 10px), calc(var(--y) * 1px + 28px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
 }
 
 .blob {

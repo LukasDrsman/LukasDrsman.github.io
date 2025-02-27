@@ -121,7 +121,7 @@ const createLine = (x, y, u, v, canvas) => {
 	line.classList.add("line");
 	translateXY(line, x, y);
 	translateUV(line, u, v);
-	canvas.appendChild(line);
+	canvas.prepend(line);
 	return line;
 }
 
@@ -140,8 +140,8 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
 	data.forEach((obj, i) => {
 		let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
 		uplink[k] = createBlob(
-			Math.floor(Math.random() * canvas.clientWidth / 8 + (1/2) * canvas.clientWidth),
-			Math.floor(Math.random() * canvas.clientHeight / 8 + (1/3) * canvas.clientHeight),
+			Math.floor(Math.random() * canvas.clientWidth / 1.01),
+			Math.floor(Math.random() * 2 * canvas.clientHeight / 3),
 			k, obj[dataKey], canvas
 		);
 
@@ -150,10 +150,10 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
 			const z = getPosition(uplink[k]);
 			const w = getPosition(uplink[connKey]);
 
-			if (connect[k]) connect[k][connKey] = createLine(z.x, z.y, w.u, w.v, canvas);
+			if (connect[k]) connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, canvas);
 			else {
 				connect[k] = {};
-				connect[k][connKey] = createLine(z.x, z.y, w.u, w.v, canvas);
+				connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, canvas);
 			}
 		});
 	});
@@ -199,5 +199,16 @@ window.onload = async () => {
 			const dy = Math.random() * 2 - 1;
 			move(cont, f.x * dt * dt + dx, f.y * dt * dt + dy);
 		});
+
+		Object.keys(connect).forEach(key1 => {
+			Object.keys(connect[key1]).forEach(key2 => {
+				const line = connect[key1][key2];
+				const p1 = getPosition(uplink[key1]);
+				const p2 = getPosition(uplink[key2]);
+
+				translateXY(line, p1.x, p1.y);
+				translateUV(line, p2.x, p2.y);
+			});
+		})
 	}, dt);
 };
