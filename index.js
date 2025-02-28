@@ -136,12 +136,15 @@ const renderBlobs = (data, uplink, uplinkKey, canvas) => {
 	});
 };
 
-const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
+const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas, k) => {
+	const angle = 2 * Math.PI / data.length;
+	const offset = Math.random();
+	const len = k * Math.min(canvas.clientHeight, canvas.clientWidth);
 	data.forEach((obj, i) => {
 		let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
 		uplink[k] = createBlob(
-			Math.floor(Math.random() * canvas.clientWidth / 2 + (1/3) * canvas.clientWidth),
-			Math.floor(Math.random() * 2 * canvas.clientHeight / 3 + (1/6) * canvas.clientHeight),
+			len * Math.cos(i * angle + offset) + canvas.clientWidth / 2,
+			len * Math.sin(i * angle + offset) + 2 * canvas.clientHeight / 5,
 			k, obj[dataKey], canvas
 		);
 
@@ -180,7 +183,8 @@ window.onload = async () => {
 	let connect = {};
 	renderBlobs(spheres.tech, uplink, "tech", canvas);
 	renderBlobs(spheres.plang, uplink, "plang", canvas);
-	renderGraph(graph.projects, "project", uplink, "project", connect, canvas);
+	renderGraph(graph.projects, "project", uplink, "project", connect, canvas, 1 / 3);
+	renderGraph(graph.work, "company", uplink, "work", connect, canvas, 1 / 5);
 
 	let MF = {};
 	canvas.addEventListener("mousemove", event => {
@@ -201,7 +205,7 @@ window.onload = async () => {
 			if (!MF[key]) MF[key] = {x: 0, y: 0};
 		});
 		Object.keys(uplink).forEach(key => {
-			if (key.includes("project")) return;
+			if (key.includes("project") || key.includes("work")) return;
 			const cont = uplink[key];
 			const f = F[key];
 			const g = MF[key];
@@ -215,15 +219,15 @@ window.onload = async () => {
 		Object.keys(connect).forEach(key1 => {
 			Object.keys(connect[key1]).forEach(key2 => {
 				const line = connect[key1][key2];
-				const u1 = uplink[key1];
-				const u2 = uplink[key2];
-				const f = vecScale(20 * tension(u1, u2), unitSep(u1, u2));
+				const u1 = uplink[key1]
+				const u2 = uplink[key2]
+				const f = vecScale(40 * tension(u1, u2), unitSep(u1, u2));
 
 				// move(u1, f.x * dt * dt, f.y * dt * dt);
 				move(u2, -f.x * dt * dt, -f.y * dt * dt);
 
-				const p1 = getPosition(uplink[key1]);
-				const p2 = getPosition(uplink[key2]);
+				const p1 = getPosition(u1);
+				const p2 = getPosition(u2);
 				translateXY(line, p1.x, p1.y);
 				translateUV(line, p2.x, p2.y);
 			});
