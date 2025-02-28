@@ -161,7 +161,7 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
 
 
 window.onload = async () => {
-	canvas.innerHTML = "...loaded";
+	canvas.innerHTML = "...canvas loaded";
 
 	const resp = await fetch(
 		"https://raw.githubusercontent.com/LukasDrsman/LukasDrsman.github.io/refs/heads/main/graph.json", {
