@@ -3,7 +3,7 @@ const canvas = document.getElementById("interactive-canvas");
 const AF = 1.0E-8;
 const RF = 10.3;
 const TF = 1.8E-10;
-const G = 1.2E-10;
+const G = 1E-9;
 
 const translateXY = (el, x, y) => {
 	el.style.setProperty("--x", x);
@@ -68,16 +68,16 @@ const repulsion = (i, j) => {
 	return -RF / (d * d);
 };
 
-const gravity = (i, canvas) => {
+const gravity = (i, cx, cy) => {
 	const c = {
-		x: canvas.clientWidth / 2,
-		y: canvas.clientHeight / 2
+		x: cx,
+		y: cy
 	};
 	const iq = getPosition(i);
 	const sep = vecDiff(c, iq);
 	const d = vecMag(sep);
 	const usep = vecScale(1 / d, sep);
-	return vecScale(G / (d * d), usep);
+	return vecScale(G * d * d, usep);
 };
 
 const totalForce = (i, T) => {
@@ -86,7 +86,7 @@ const totalForce = (i, T) => {
 		if (i == j) return pddq;
 
 		return vecSum(pddq, vecScale(
-			attraction(i, j) + tension(i, j) + repulsion(i, j),
+			attraction(i, j) /*+ tension(i, j)*/ + repulsion(i, j),
 			unitSep(i, j)
 		));
 	}, {x: 0, y: 0});
@@ -108,8 +108,8 @@ const createBlob = (x, y, key, tag, canvas) => {
 	nameTag.id = `tag@${key}`;
 	nameTag.innerHTML = tag;
 
-	cont.appendChild(nameTag);
 	cont.appendChild(el);
+	cont.appendChild(nameTag);
 
 	translateXY(cont, x, y);
 	canvas.appendChild(cont);
@@ -129,8 +129,8 @@ const renderBlobs = (data, uplink, uplinkKey, canvas) => {
 	Object.keys(data).forEach(key => {
 		const k = `${uplinkKey}::${key}`;
 		uplink[k] = createBlob(
-			Math.floor(Math.random() * canvas.clientWidth / 8 + (1/2) * canvas.clientWidth),
-			Math.floor(Math.random() * canvas.clientHeight / 8 + (1/3) * canvas.clientHeight),
+			Math.floor(Math.random() * canvas.clientWidth / 10 + (1/2) * canvas.clientWidth),
+			Math.floor(Math.random() * canvas.clientHeight / 10 + (1/3) * canvas.clientHeight),
 			k, data[key], canvas
 		);
 	});
@@ -140,7 +140,7 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
 	data.forEach((obj, i) => {
 		let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
 		uplink[k] = createBlob(
-			Math.floor(Math.random() * canvas.clientWidth / 1.01),
+			Math.floor(Math.random() * canvas.clientWidth / 2 + (1/3) * canvas.clientWidth),
 			Math.floor(Math.random() * 2 * canvas.clientHeight / 3),
 			k, obj[dataKey], canvas
 		);
@@ -182,7 +182,14 @@ window.onload = async () => {
 	renderBlobs(spheres.plang, uplink, "plang", canvas);
 	renderGraph(graph.projects, "project", uplink, "project", connect, canvas);
 
-	canvas.addEventListener("mousemove", event => {});
+	let MF = {};
+	canvas.addEventListener("mousemove", event => {
+		const x = event.x;
+		const y = event.y;
+		Object.keys(uplink).forEach(key => {
+			MF[key] = gravity(uplink[key], x, y);
+		});
+	});
 
 	const dt = 50;
 
@@ -191,24 +198,35 @@ window.onload = async () => {
 		Object.keys(uplink).forEach(key => {
 			const cont = uplink[key];
 			F[key] = totalForce(cont, uplink);
+			if (!MF[key]) MF[key] = {x: 0, y: 0};
 		});
 		Object.keys(uplink).forEach(key => {
+			if (key.includes("project")) return;
 			const cont = uplink[key];
 			const f = F[key];
+			const g = MF[key];
 			const dx = Math.random() * 2 - 1;
 			const dy = Math.random() * 2 - 1;
-			move(cont, f.x * dt * dt + dx, f.y * dt * dt + dy);
+			// const dx = 0;
+			// const dy = 0;
+			move(cont, (f.x + g.x) * dt * dt + dx, (f.y + g.y) * dt * dt + dy);
 		});
 
 		Object.keys(connect).forEach(key1 => {
 			Object.keys(connect[key1]).forEach(key2 => {
 				const line = connect[key1][key2];
+				const u1 = uplink[key1];
+				const u2 = uplink[key2];
+				const f = vecScale(20 * tension(u1, u2), unitSep(u1, u2));
+
+				// move(u1, f.x * dt * dt, f.y * dt * dt);
+				move(u2, -f.x * dt * dt, -f.y * dt * dt);
+
 				const p1 = getPosition(uplink[key1]);
 				const p2 = getPosition(uplink[key2]);
-
 				translateXY(line, p1.x, p1.y);
 				translateUV(line, p2.x, p2.y);
 			});
 		})
-	}, dt);
+	}, 25);
 };
