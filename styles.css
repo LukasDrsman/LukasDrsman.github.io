@@ -26,7 +26,7 @@ html {
     border-top: 1px solid #51696E;
     width: 1px;
     height: 0px;
-    transform: translate3d(calc(var(--x) * 1px + 9px), calc(var(--y) * 1px + 28px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+    transform: translate3d(calc(var(--x) * 1px + 8px), calc(var(--y) * 1px + 28px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
 }
 
 .line-hi {
