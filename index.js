@@ -141,7 +141,7 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas) => {
 		let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
 		uplink[k] = createBlob(
 			Math.floor(Math.random() * canvas.clientWidth / 2 + (1/3) * canvas.clientWidth),
-			Math.floor(Math.random() * 2 * canvas.clientHeight / 3),
+			Math.floor(Math.random() * 2 * canvas.clientHeight / 3 + (1/6) * canvas.clientHeight),
 			k, obj[dataKey], canvas
 		);
 

@@ -5,6 +5,7 @@ html {
   	font-style: normal;
   	background-color: #000;
   	color: #fff;
+    overflow: hidden;
 }
 
 #interactive-canvas {
