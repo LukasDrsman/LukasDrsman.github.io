@@ -3,8 +3,8 @@ html {
   	font-optical-sizing: auto;
   	font-weight: 500;
   	font-style: normal;
-  	background-color: #000;
-  	color: #fff;
+  	background-color: #0d1b1e;
+  	color: #f7ebec;
     overflow: hidden;
 }
 
@@ -23,10 +23,14 @@ html {
     --scale: sqrt(var(--dx) * var(--dx) + var(--dy) * var(--dy));
     position: absolute;
     transform-origin: top left;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #51696E;
     width: 1px;
     height: 0px;
     transform: translate3d(calc(var(--x) * 1px + 9px), calc(var(--y) * 1px + 28px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+}
+
+.line-hi {
+    border-top: 2px solid #8AA7AE;
 }
 
 .blob {

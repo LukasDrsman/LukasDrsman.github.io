@@ -101,12 +101,33 @@ const createBlob = (x, y, key, tag, canvas) => {
 	el.classList.add("blob")
 	el.classList.add(`${key.split("::")[0]}-blob`);
 	el.id = `blob@${key}`;
-	
+
+	el.addEventListener("mouseenter", event => {
+		document.querySelectorAll(`.line--${key.replace("::", "--")}`).forEach(e => {
+			e.classList.add("line-hi");
+		});
+	});
+	el.addEventListener("mouseleave", event => {
+		document.querySelectorAll(`.line--${key.replace("::", "--")}`).forEach(e => {
+			e.classList.remove("line-hi");
+		});
+	});
 
 	const nameTag = document.createElement("div");
 	nameTag.classList.add("blob-tag");
 	nameTag.id = `tag@${key}`;
 	nameTag.innerHTML = tag;
+
+	nameTag.addEventListener("mouseenter", event => {
+		document.querySelectorAll(`.line--${key.replace("::", "--")}`).forEach(e => {
+			e.classList.add("line-hi");
+		});
+	});
+	nameTag.addEventListener("mouseleave", event => {
+		document.querySelectorAll(`.line--${key.replace("::", "--")}`).forEach(e => {
+			e.classList.remove("line-hi");
+		});
+	});
 
 	cont.appendChild(el);
 	cont.appendChild(nameTag);
@@ -116,9 +137,11 @@ const createBlob = (x, y, key, tag, canvas) => {
 	return cont;
 }
 
-const createLine = (x, y, u, v, canvas) => {
+const createLine = (x, y, u, v, uplink1, uplink2, canvas) => {
 	const line = document.createElement("div");
 	line.classList.add("line");
+	line.classList.add(`line--${uplink1.replace("::", "--")}`);
+	line.classList.add(`line--${uplink2.replace("::", "--")}`);
 	translateXY(line, x, y);
 	translateUV(line, u, v);
 	canvas.prepend(line);
@@ -141,7 +164,8 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas, k) => {
 	const offset = Math.random();
 	const len = k * Math.min(canvas.clientHeight, canvas.clientWidth);
 	data.forEach((obj, i) => {
-		let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
+		// let k = obj.uplink ? `${uplinkKey}::${obj.uplink}` : `${uplinkKey}::${i}`;
+		let k = `${uplinkKey}::${i}`;
 		uplink[k] = createBlob(
 			len * Math.cos(i * angle + offset) + canvas.clientWidth / 2,
 			len * Math.sin(i * angle + offset) + 2 * canvas.clientHeight / 5,
@@ -149,14 +173,13 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas, k) => {
 		);
 
 		obj.connections.forEach(connKey => {
-			console.log(k, connKey, uplink[connKey]);
 			const z = getPosition(uplink[k]);
 			const w = getPosition(uplink[connKey]);
 
-			if (connect[k]) connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, canvas);
+			if (connect[k]) connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, k, connKey, canvas);
 			else {
 				connect[k] = {};
-				connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, canvas);
+				connect[k][connKey] = createLine(z.x, z.y, w.x, w.y, k, connKey, canvas);
 			}
 		});
 	});
