@@ -56,7 +56,7 @@ const unitSep = (i, j) => {
 
 const attraction = (i, j) => {
 	const d = dist(i, j);
-	if (d == 0) return 0;
+	if (d === 0) return 0;
 	return AF / (d * d);
 };
 
@@ -64,7 +64,7 @@ const tension = (i, j) => TF * dist(i, j) * dist(i, j);
 
 const repulsion = (i, j) => {
 	const d = dist(i, j);
-	if (d == 0) return 0;
+	if (d === 0) return 0;
 	return -RF / (d * d);
 };
 
@@ -83,7 +83,7 @@ const gravity = (i, cx, cy) => {
 const totalForce = (i, T) => {
 	return Object.keys(T).reduce((pddq, key) => {
 		const j = T[key];
-		if (i == j) return pddq;
+		if (i === j) return pddq;
 
 		return vecSum(pddq, vecScale(
 			attraction(i, j) /*+ tension(i, j)*/ + repulsion(i, j),
@@ -187,7 +187,7 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas, k) => {
 
 
 window.onload = async () => {
-	canvas.innerHTML = "...canvas loaded";
+	// canvas.innerHTML = "...canvas loaded";
 
 	const resp = await fetch(
 		"https://raw.githubusercontent.com/LukasDrsman/LukasDrsman.github.io/refs/heads/main/graph.json", {

@@ -3,9 +3,13 @@ html {
   	font-optical-sizing: auto;
   	font-weight: 500;
   	font-style: normal;
-  	background-color: #0d1b1e;
+  	background-color: #000;
   	color: #f7ebec;
     overflow: hidden;
+}
+
+.font-normal {
+    font-weight: 300;
 }
 
 #interactive-canvas {
@@ -26,7 +30,7 @@ html {
     border-top: 1px solid #51696E;
     width: 1px;
     height: 0px;
-    transform: translate3d(calc(var(--x) * 1px + 8px), calc(var(--y) * 1px + 28px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+    transform: translate3d(calc(var(--x) * 1px + 8px), calc(var(--y) * 1px + 8px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
 }
 
 .line-hi {
@@ -41,41 +45,47 @@ html {
 .tech-blob {
     width: 15px;
     height: 15px;
-    background-color: #c2eeff;
+    background-color: #84bdff;
     z-index: -10;
-    -webkit-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
-    -moz-box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
-    box-shadow: 0px 0px 26px 6px rgba(0, 200, 255, 0.64);
+    -webkit-box-shadow: 0px 0px 26px 6px #0077ffa3;
+    -moz-box-shadow: 0px 0px 26px 6px #0077ffa3;
+    box-shadow: 0px 0px 26px 6px #0077ffa3;
 }
 
 .plang-blob {
     width: 15px;
     height: 15px;
-    background-color: #c2ffce;
+    background-color: #bcff9d;
     z-index: -10;
-    -webkit-box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
-    -moz-box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
-    box-shadow: 0px 0px 26px 6px rgba(0, 255, 134, 0.64);
+    -webkit-box-shadow: 0px 0px 26px 6px #65ac44a3;
+    -moz-box-shadow: 0px 0px 26px 6px #65ac44a3;
+    box-shadow: 0px 0px 26px 6px #65ac44a3;
 }
 
 .project-blob {
     width: 20px;
     height: 20px;
-    background-color: #ffe77d;
+    background-color: #ffb676;
     z-index: -10;
-    -webkit-box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
-    -moz-box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
-    box-shadow: 0px 0px 26px 6px rgba(252, 186, 3, 0.64);
+    -webkit-box-shadow: 0px 0px 26px 6px #FF7700A3;
+    -moz-box-shadow: 0px 0px 26px 6px #FF7700A3;
+    box-shadow: 0px 0px 26px 6px #FF7700A3;
+}
+
+.project-blob:hover {
+    transition: transform 0.3s ease-out;
+    transform: scale(1.25);
+    transition: transform 0s;
 }
 
 .work-blob {
     width: 20px;
     height: 20px;
-    background-color: #ff9bd0;
+    background-color: #ff78c2;
     z-index: -10;
-    -webkit-box-shadow: 0px 0px 26px 6px rgba(255, 61, 164, 0.64);
-    -moz-box-shadow: 0px 0px 26px 6px rgba(255, 61, 164, 0.64);
-    box-shadow: 0px 0px 26px 6px 0px 0px 26px 6px rgba(255, 61, 164, 0.64);
+    -webkit-box-shadow: 0px 0px 26px 6px #FF008CA3;
+    -moz-box-shadow: 0px 0px 26px 6px #FF008CA3;
+    box-shadow: 0px 0px 26px 6px 0px 0px 26px 6px #FF008CA3;
 }
 
 .blob-tag {
@@ -83,8 +93,8 @@ html {
 	border-radius: 6px;
 	width: auto;
 	height: auto;
-	background-color: #adadad;
-	color: #000;
+	color: #adadad;
+	background-color: #000;
 	z-index: 3000;
 	bottom: -15px;
     right: 12px;
@@ -93,13 +103,13 @@ html {
     padding: 2px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 12px;
+    font-size: 10px;
     transition: transform 0.3s ease-out;
     user-select: none;
 }
 
 .blob-tag:hover {
-	transform: scale(1.25);
+	transform: scale(1.4);
   	transition: transform 0s;
 }
 

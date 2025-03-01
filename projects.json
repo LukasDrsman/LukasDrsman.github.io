@@ -1,0 +1,34 @@
+{
+	"projects" : [
+		{
+			"title": "voxels",
+			"author": "LukasDrsman",
+			"link": "https://github.com/LukasDrsman/voxels",
+			"link_alt": "voxels@github",
+			"langs": null,
+			"description": "Voxels for parametric volume and point-cloud approximation and rendering.",
+			"sections": [
+				{
+					"title": "Key takeaways",
+					"para": "I learnt to work with OpenGL4.5 VAOs and VBOs and GLSL, applying to me then unbeknownst concepts."
+				}
+			]
+		},
+		{
+			"title": "libev3min",
+			"author": "TatranskiDravci",
+			"link": "https://github.com/TatranskiDravci/libev3min",
+			"link_alt": "libev3min@github",
+			"langs": null,
+			"description": "Minimalist open-source library for EV3 LEGO robots, used during First Lego League Challenge nationals in Slovakia."
+		},
+		{
+			"title": "vis3dvf",
+			"author": "LukasDrsman",
+			"link": "https://github.com/TatranskiDravci/vis3dvf",
+			"link_alt": "vis3dvf@github",
+			"langs": null,
+			"description": "Time-dependent R^3 vector field visualizer module."
+		}
+	]
+}

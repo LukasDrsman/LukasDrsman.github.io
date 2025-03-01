@@ -25,7 +25,8 @@
 			"graphics": "Graphics programming",
 			"data": "Data analysis & plotting",
 			"np": "NumPy",
-			"jp": "Jupyter"
+			"jp": "Jupyter",
+			"figma": "Figma"
 		},
 		"plang": {
 			"web": "HTML/JS/CSS",
@@ -59,7 +60,7 @@
 					"tech::sql", "tech::win",
 					"tech::http", "tech::serial",
 					"tech::config", "tech::flask",
-					"tech::git"
+					"tech::git", "tech::figma"
 				]
 			},
 			{
@@ -86,7 +87,7 @@
 				"connections": [
 					"plang::php", "plang::web",
 					"tech::sql", "tech::ftp",
-					"tech::design"
+					"tech::design", "tech::figma"
 				]
 			},
 			{
@@ -117,7 +118,8 @@
 					"tech::wscrape", "tech::iot",
 					"tech::config", "tech::exc",
 					"tech::rest", "tech::http",
-					"tech::design", "tech::node"
+					"tech::design", "tech::node",
+					"tech::figma"
 				]
 			}
 		],
@@ -135,7 +137,7 @@
 					"tech::design", "tech::git",
 					"tech::config", "tech::linux",
 					"tech::win", "langs::sk", "langs::en",
-					"project::~tmnhmt"
+					"project::~tmnhmt", "tech::figma"
 				]
 			}
 		],
