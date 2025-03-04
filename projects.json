@@ -6,13 +6,24 @@
 			"link": "https://github.com/LukasDrsman/voxels",
 			"link_alt": "voxels@github",
 			"langs": null,
+			"langs_fallback": [{
+				"lang": "C++",
+				"pct": 0.874
+			}, {
+				"lang": "GLSL",
+				"pct": 0.101
+			}, {
+				"lang": "CMake",
+				"pct": 0.025
+			}],
 			"description": "Voxels for parametric volume and point-cloud approximation and rendering.",
 			"sections": [
 				{
 					"title": "Key takeaways",
 					"para": "I learnt to work with OpenGL4.5 VAOs and VBOs and GLSL, applying to me then unbeknownst concepts."
 				}
-			]
+			],
+			"gallery": "image"
 		},
 		{
 			"title": "libev3min",
@@ -20,7 +31,15 @@
 			"link": "https://github.com/TatranskiDravci/libev3min",
 			"link_alt": "libev3min@github",
 			"langs": null,
-			"description": "Minimalist open-source library for EV3 LEGO robots, used during First Lego League Challenge nationals in Slovakia."
+			"langs_fallback": [{
+				"lang": "C",
+				"pct": 0.94
+			}, {
+				"lang": "Makefile",
+				"pct": 0.6
+			}],
+			"description": "Minimalist open-source library for EV3 LEGO robots, used during First Lego League Challenge nationals in Slovakia.",
+			"gallery": "code::c"
 		},
 		{
 			"title": "vis3dvf",
@@ -28,7 +47,12 @@
 			"link": "https://github.com/TatranskiDravci/vis3dvf",
 			"link_alt": "vis3dvf@github",
 			"langs": null,
-			"description": "Time-dependent R^3 vector field visualizer module."
+			"langs_fallback": [{
+				"lang": "Python",
+				"pct": 0.100
+			}],
+			"description": "Time-dependent R^3 vector field visualizer module.",
+			"gallery": "image"
 		}
 	]
 }

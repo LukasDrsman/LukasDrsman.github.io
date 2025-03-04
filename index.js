@@ -187,7 +187,6 @@ const renderGraph = (data, dataKey, uplink, uplinkKey, connect, canvas, k) => {
 
 
 window.onload = async () => {
-	// canvas.innerHTML = "...canvas loaded";
 
 	const resp = await fetch(
 		"https://raw.githubusercontent.com/LukasDrsman/LukasDrsman.github.io/refs/heads/main/graph.json", {
@@ -210,7 +209,7 @@ window.onload = async () => {
 	renderGraph(graph.work, "company", uplink, "work", connect, canvas, 1 / 5);
 
 	let MF = {};
-	canvas.addEventListener("mousemove", event => {
+	document.addEventListener("mousemove", event => {
 		const x = event.x;
 		const y = event.y;
 		Object.keys(uplink).forEach(key => {
@@ -256,4 +255,27 @@ window.onload = async () => {
 			});
 		})
 	}, 25);
+
+	const ccanvas = document.getElementById("card-canvas");
+	const projects = (await (await fetch(`${HOST}/projects.json`)).json()).projects;
+
+	const cards = [];
+	const pphi = 180 / (projects.length - 1);
+	for (const [i, project] of projects.entries()) {
+		const card = await createCard(project, ccanvas);
+		// translateXY(card, 0, 10 + i * 82);
+		setInitial(i * pphi, card);
+		cards.push(card);
+	}
+
+	hljs.highlightAll();
+	canvas.style.display = "";
+
+	document.onwheel = event => {
+		const dy = Math.sign(event.deltaY);
+
+		cards.forEach((card, i) => {
+			rotate(-2*dy, card);
+		});
+	};
 };

@@ -9,20 +9,33 @@ html {
     margin: 0;
 }
 
+:root {
+    --phicoeff: 0.8;
+}
+
 body {
     margin: 0;
 }
 
 #card-canvas {
     margin: 0;
-    width: calc(100vw - 40px);
-    height: 70vh;
+    /*width: calc(100vw - 40px);*/
+    /*height: 70vh;*/
     position: absolute;
     left: 0;
     right: 0;
+    transform: translate(0, -102vh);
+}
+
+pre code.hljs {
+    font-family: "Space Mono", monospace;
+    font-size: 16px;
+    background-color: #ffffff;
 }
 
 .card {
+    --off: 0;
+    --phi: 0;
     position: absolute;
     border-image: linear-gradient(to right, #0077FF 47%, #65AC44 76%, #FF7700 100%);
     border-image-slice: 1;
@@ -33,9 +46,15 @@ body {
     background-color: #000;
     color: #fff;
     padding: 20px;
-    width: 100%;
-    height: 70%;
+    width: calc(100vw - 40px);
+    height: 100vh;
     margin: -4px;
+    transform: translate3d(0vw,
+                            calc((92 + 82 * sin((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh),
+                            calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh));
+
+    z-index: calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) + 164);
+    /*filter: blur(calc(1px * (-50 - 82 * cos((-3.14 + var(--off) + var(--phi) * var(--phicoeff)) * 1deg))));*/
 }
 
 .card-header {
@@ -56,8 +75,25 @@ body {
 }
 
 .card-content {
+    display: flex;
+    flex-direction: row;
     margin: 15px;
     width: 100%;
+    column-gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-image {
+    width: 100%;
+    max-width: fit-content;
+    margin-left: auto;
+}
+
+.card-content-col {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-section {
@@ -79,7 +115,8 @@ body {
 .card-lang {
     color: #000;
     /*background: linear-gradient(to right, #0077FF 47%, #65AC44 76%, #FF7700 100%);*/
-    width: 40%;
+    width: 70%;
+    max-width: 460px;
     display: flex;
     overflow: clip;
 }
@@ -89,7 +126,7 @@ body {
     position: relative;
     text-align: center;
     margin: 2px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
 }
 
