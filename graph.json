@@ -201,6 +201,16 @@
 					"plang::py", "tech::opengl",
 					"tech::np", "tech::data"
 				]
+			},
+						{
+				"project": "~this",
+				"link": "https://github.com/LukasDrsman/LukasDrsman.github.io",
+				"desc": "Portfolio page",
+				"connections": [
+					"plang::web", "tech::design",
+					"tech::figma", "tech::graphics",
+					"tech::data"
+				]
 			}
 		]
 	}
