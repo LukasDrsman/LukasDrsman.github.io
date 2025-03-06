@@ -1,0 +1,149 @@
+html {
+	font-family: "Space Grotesk", serif;
+  	font-optical-sizing: auto;
+  	font-weight: 500;
+  	font-style: normal;
+  	background-color: #000;
+  	color: #f7ebec;
+    /*overflow: hidden;*/
+}
+
+.font-normal {
+    font-weight: 300;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+ul li:before
+{
+    content: '~';
+    margin: 0 1em;    /* any design */
+}
+
+.link {
+    margin-left: auto;
+    font-size: 20px;
+    color: #0077FF;
+    text-decoration-style: wavy;
+    font-weight: normal;
+}
+
+.link:hover {
+    color: #0095ff;
+    font-weight: 500;
+}
+
+#interactive-canvas {
+	width: 95vw;
+	height: 95vh;
+}
+
+.line {
+    --x: 0;
+    --y: 0;
+    --u: 0;
+    --v: 0;
+    --dx: calc(var(--u) - var(--x));
+    --dy: calc(var(--v) - var(--y));
+    --scale: sqrt(var(--dx) * var(--dx) + var(--dy) * var(--dy));
+    position: absolute;
+    transform-origin: top left;
+    border-top: 1px solid #51696E;
+    width: 1px;
+    height: 0px;
+    transform: translate3d(calc(var(--x) * 1px + 8px), calc(var(--y) * 1px + 8px), 0px) rotate(atan2(var(--dy), var(--dx))) scaleX(var(--scale));
+}
+
+.line-hi {
+    border-top: 2px solid #8AA7AE;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.tech-blob {
+    width: 15px;
+    height: 15px;
+    background-color: #84bdff;
+    z-index: 100;
+    -webkit-box-shadow: 0px 0px 26px 6px #0077ffa3;
+    -moz-box-shadow: 0px 0px 26px 6px #0077ffa3;
+    box-shadow: 0px 0px 26px 6px #0077ffa3;
+}
+
+.plang-blob {
+    width: 15px;
+    height: 15px;
+    background-color: #bcff9d;
+    z-index: 0;
+    -webkit-box-shadow: 0px 0px 26px 6px #65ac44a3;
+    -moz-box-shadow: 0px 0px 26px 6px #65ac44a3;
+    box-shadow: 0px 0px 26px 6px #65ac44a3;
+}
+
+.project-blob {
+    width: 20px;
+    height: 20px;
+    background-color: #ffb676;
+    z-index: 0;
+    -webkit-box-shadow: 0px 0px 26px 6px #FF7700A3;
+    -moz-box-shadow: 0px 0px 26px 6px #FF7700A3;
+    box-shadow: 0px 0px 26px 6px #FF7700A3;
+}
+
+.project-blob:hover {
+    transition: transform 0.3s ease-out;
+    transform: scale(1.25);
+    transition: transform 0s;
+}
+
+.work-blob {
+    width: 20px;
+    height: 20px;
+    background-color: #ff78c2;
+    z-index: -10;
+    -webkit-box-shadow: 0px 0px 26px 6px #FF008CA3;
+    -moz-box-shadow: 0px 0px 26px 6px #FF008CA3;
+    box-shadow: 0px 0px 26px 6px 0px 0px 26px 6px #FF008CA3;
+}
+
+.blob-tag {
+	position: absolute;
+	border-radius: 6px;
+	width: auto;
+	height: auto;
+	color: #adadad;
+	background-color: #000;
+	z-index: 3000;
+	bottom: -15px;
+    right: 12px;
+    float: left;
+    white-space: nowrap;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 10px;
+    transition: transform 0.3s ease-out;
+    user-select: none;
+}
+
+.blob-tag:hover {
+	transform: scale(1.4);
+  	transition: transform 0s;
+}
+
+.blob-container {
+    --x: 0;
+    --y: 0;
+    --u: 0;
+    --v: 0;
+    transform: translate3d(calc(var(--x) * 1px) , calc(var(--y) * 1px), 0px);
+	position: absolute;
+	z-index: 0;
+}
+	

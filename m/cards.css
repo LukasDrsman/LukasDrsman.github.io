@@ -1,0 +1,141 @@
+html, body {
+    overflow-x: hidden;
+}
+
+html {
+    font-family: "Space Grotesk", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #000;
+    color: #fff;
+    /*overflow: hidden;*/
+    margin: 0;
+}
+
+body {
+    position: relative;
+    margin: 0;
+}
+
+#card-canvas {
+    margin: 0;
+    margin-top: 30px;
+    /*width: calc(100vw - 40px);*/
+    /*height: 70vh;*/
+    position: relative;
+}
+
+pre code.hljs {
+    font-family: "Space Mono", monospace;
+    font-size: 5pt;
+    background-color: #ffffff;
+}
+
+.card {
+    position: relative;
+    border-image: linear-gradient(to right, #0077FF 47%, #65AC44 76%, #FF7700 100%);
+    border-image-slice: 1;
+    border-image-outset: 1;
+
+    border-width: 4px;
+    border-style: solid;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    width: calc(100vw - 40px);
+    height: fit-content;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.card-header {
+    display: flex;
+    margin-bottom: 35px;
+}
+
+.card-title {
+    font-size: 30px;
+}
+
+.card-link {
+    margin-right: auto;
+    font-size: 24px;
+    color: #0077FF;
+    text-decoration-style: wavy;
+    font-weight: normal;
+}
+
+.card-link:hover {
+    color: #0095ff;
+    font-weight: 500;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    /*margin: 15px;*/
+    width: 100%;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+}
+
+.card-image {
+    width: 90%;
+    max-width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-content-col {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.card-section {
+    margin-bottom: 25px;
+}
+
+.card-section-para {
+    font-weight: normal;
+    min-width: 220px;
+    max-width: 100%;
+}
+
+.card-section-title {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.card-lang {
+    color: #000;
+    /*background: linear-gradient(to right, #0077FF 47%, #65AC44 76%, #FF7700 100%);*/
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    overflow: clip;
+}
+
+
+.card-lang-entry {
+    position: relative;
+    text-align: center;
+    margin: 2px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.card-lang > div:first-child {
+    text-align: left;
+    margin-right: auto;
+}
+
+.card-lang > div:last-child {
+    text-align: right;
+    margin-left: auto;
+}

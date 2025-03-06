@@ -269,7 +269,7 @@ window.onload = async () => {
 	}
 
 	hljs.highlightAll();
-	canvas.style.display = "";
+	ccanvas.style.display = "";
 
 	document.onwheel = event => {
 		const dy = Math.sign(event.deltaY);

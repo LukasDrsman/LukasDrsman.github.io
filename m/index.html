@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lukáš Dršman | portfolio</title>
+    <link rel="stylesheet" type="text/css" href="/m/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/m/cards.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="/hljs-style.css">
+    <script>
+        const DESKTOP_LOWER = 768;
+
+        const viewportRedirect = isMobile => {
+            const href = window.location.href;
+            const origin = window.location.origin;
+            const isMobilePath = href.includes("/m/");
+
+            if (isMobile === isMobilePath) return;                                  // no change when in appropriate viewport context
+            if (isMobilePath) window.location.replace(href.replace("/m", "")); // remove /m from url
+            else window.location.replace(`${origin}/m${href.split(origin)[1]}`);                     // add /m to url
+        };
+
+        window.addEventListener("load", () => viewportRedirect(window.innerWidth < DESKTOP_LOWER));
+        window.addEventListener("resize", () => viewportRedirect(window.innerWidth < DESKTOP_LOWER));
+    </script>
+</head>
+<body>
+<h2 style="margin-left: 25px;">Lukáš Dršman | portfolio</h2>
+<h3 style="margin-left: 30px; font-style: italic; font-size: 16px; max-width: 250px;">for a more tailored experience, please use a desktop device</h3>
+<ul>
+    <li><a href="https://github.com/LukasDrsman" class="link">@github</a></li>
+    <li><a href="https://www.linkedin.com/in/lukasdrsman/" class="link">@linkedin</a></li>
+</ul>
+<div id="card-canvas"></div>
+<script type="text/javascript" src="/m/cards.js"></script>
+</body>
+</html>

@@ -12,6 +12,22 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
 	<link rel="stylesheet" href="hljs-style.css">
+	<script>
+		const DESKTOP_LOWER = 768;
+
+		const viewportRedirect = isMobile => {
+			const href = window.location.href;
+			const origin = window.location.origin;
+			const isMobilePath = href.includes("/m/");
+
+			if (isMobile === isMobilePath) return;                                  // no change when in appropriate viewport context
+			if (isMobilePath) window.location.replace(href.replace("/m", "")); // remove /m from url
+			else window.location.replace(`${origin}/m${href.split(origin)[1]}`);                     // add /m to url
+		};
+
+		window.addEventListener("load", () => viewportRedirect(window.innerWidth < DESKTOP_LOWER));
+		window.addEventListener("resize", () => viewportRedirect(window.innerWidth < DESKTOP_LOWER));
+	</script>
 </head>
 <body>
 <h2 style="margin-left: 25px;">Lukáš Dršman | portfolio</h2>
