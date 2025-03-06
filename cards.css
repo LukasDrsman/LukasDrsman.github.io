@@ -10,7 +10,7 @@ html {
 }
 
 :root {
-    --phicoeff: 0.8;
+    --phicoeff: 0.3;
 }
 
 body {
@@ -54,7 +54,6 @@ pre code.hljs {
                             calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh));
 
     z-index: calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) + 164);
-    /*filter: blur(calc(1px * (-50 - 82 * cos((-3.14 + var(--off) + var(--phi) * var(--phicoeff)) * 1deg))));*/
 }
 
 .card-header {

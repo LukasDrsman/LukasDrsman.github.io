@@ -275,7 +275,7 @@ window.onload = async () => {
 		const dy = Math.sign(event.deltaY);
 
 		cards.forEach((card, i) => {
-			rotate(-2*dy, card);
+			rotate(-Math.abs(event.deltaY)*dy / 10, card);
 		});
 	};
 };

@@ -39,6 +39,12 @@
 				"pct": 0.6
 			}],
 			"description": "Minimalist open-source library for EV3 LEGO robots, used during First Lego League Challenge nationals in Slovakia.",
+			"sections": [
+				{
+					"title": "Teamwork & efficiency",
+					"para": "This library was developed in-between regionals and nationals, in a particularly short period of time, allowing for only a disproportionately small tolerance for error and a simple specification, so that it could be efficiently leveraged by any member of the team."
+				}
+			],
 			"gallery": "code::c"
 		},
 		{
@@ -52,7 +58,13 @@
 				"pct": 0.100
 			}],
 			"description": "Time-dependent R^3 vector field visualizer module.",
-			"gallery": "image"
+			"gallery": "image",
+			"sections": [
+				{
+					"title": "Personalization",
+					"para": "Sometimes, widely available tools may simply be either too complex, inaccessible, or not cut out for the job. At the time of developing this minimal vector field plotter, I was attempting to visualize the radiative component of electric field for a rotating charge (as in a synchrotron). To fully grasp the physical implications, a 2D cross-section of a specific time simply was not enough, thus leading me to graphics programming."
+				}
+			]
 		}
 	]
 }

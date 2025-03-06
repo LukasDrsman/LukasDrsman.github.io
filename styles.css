@@ -12,6 +12,25 @@ html {
     font-weight: 300;
 }
 
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+ul li:before
+{
+    content: '~';
+    margin: 0 1em;    /* any design */
+}
+
+.link {
+    margin-left: auto;
+    font-size: 20px;
+    color: #0077FF;
+    text-decoration-style: wavy;
+    font-weight: normal;
+}
+
 #interactive-canvas {
 	width: 95vw;
 	height: 95vh;
