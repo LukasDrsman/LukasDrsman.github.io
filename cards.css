@@ -73,6 +73,11 @@ pre code.hljs {
     font-weight: normal;
 }
 
+.card-link:hover {
+    color: #0095ff;
+    font-weight: 500;
+}
+
 .card-content {
     display: flex;
     flex-direction: row;
