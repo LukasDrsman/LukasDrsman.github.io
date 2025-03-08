@@ -50,7 +50,7 @@ pre code.hljs {
     height: 100vh;
     margin: -4px;
     transform: translate3d(0vw,
-                            calc((92 + 82 * sin((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh),
+                            calc((90 + 82 * sin((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh),
                             calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) * 1vh));
 
     z-index: calc((-82 + 82 * cos((var(--off) + var(--phi) * var(--phicoeff)) * 1deg)) + 164);
